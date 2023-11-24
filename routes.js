@@ -35,7 +35,6 @@ const routes = [
       return `${username} Gantenk!`;
     },
   },
-
   {
     method: "GET",
     path: "/hello/{name?}",
@@ -51,6 +50,14 @@ const routes = [
     path: "/{any*}",
     handler: (request, h) => {
       return "Halaman tidak ditemukan";
+    },
+  },
+  {
+    method: "POST",
+    path: "/login",
+    handler: (request, h) => {
+      const { username, password } = request.payload;
+      return `Welcome ${username}!`;
     },
   },
 ];
