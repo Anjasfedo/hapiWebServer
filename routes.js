@@ -35,6 +35,17 @@ const routes = [
       return `${username} Gantenk!`;
     },
   },
+
+  {
+    method: "GET",
+    path: "/hello/{name?}",
+    handler: (request, h) => {
+      const { name = "Anjas" } = request.params;
+      const { location } = request.query;
+      return `${name} Gantenk, dari ${location}`;
+      //   access with http://localhost:5000/hello/anjass?location=bengkulu
+    },
+  },
   {
     method: "*",
     path: "/{any*}",
